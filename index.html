@@ -3,258 +3,281 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfólio Web - Desenvolvedor</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <title>Meu Portfólio Web</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   
   <style>
-    /* TODO O CSS AQUI DENTRO PARA NÃO TER ERRO DE PASTA */
+    /* Variáveis de cores para facilitar o Modo Claro/Escuro */
     :root {
-      --text-color: #1a1a1a;
-      --primary-color: #1a1a1a;
-      --glass-bg: rgba(255, 255, 255, 0.4);
-      --glass-border: rgba(255, 255, 255, 0.5);
-      --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
-      --btn-text: #ffffff;
-      --transition: all 0.3s ease;
+      --text-main: #1a1a1a;
+      --text-muted: #4a4a4a;
+      --glass-bg: rgba(255, 255, 255, 0.5);
+      --glass-border: rgba(255, 255, 255, 0.7);
+      --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.05);
+      --btn-bg: rgba(255, 255, 255, 0.6);
+      --btn-hover: rgba(255, 255, 255, 0.9);
     }
 
+    /* Cores do Modo Escuro */
     body.dark-mode {
-      --text-color: #f0f0f0;
-      --primary-color: #f0f0f0;
-      --glass-bg: rgba(0, 0, 0, 0.45);
-      --glass-border: rgba(255, 255, 255, 0.1);
-      --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
-      --btn-text: #000000;
+      --text-main: #ffffff;
+      --text-muted: #e0e0e0;
+      --glass-bg: rgba(30, 30, 30, 0.45);
+      --glass-border: rgba(255, 255, 255, 0.15);
+      --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+      --btn-bg: rgba(0, 0, 0, 0.4);
+      --btn-hover: rgba(0, 0, 0, 0.8);
     }
 
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
     }
 
     body {
-      font-family: 'Poppins', sans-serif;
-      color: var(--text-color);
-      transition: var(--transition);
-      line-height: 1.6;
-      
-      /* AQUI PUXA A IMAGEM. ELA DEVE ESTAR NA MESMA PASTA DESSE HTML COM O NOME fundo.jpg */
-      background-image: url('fundo.jpg'); 
+      /* Imagem de Fundo - Precisa estar na mesma pasta! */
+      background-image: url('fundo.jpg');
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
       min-height: 100vh;
+      color: var(--text-main);
+      display: flex;
+      flex-direction: column;
+      transition: color 0.3s ease;
     }
 
-    /* Efeito Glassmorphism (Vidro Fosco) */
-    .glass-effect {
-      background: var(--glass-bg);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid var(--glass-border);
-      box-shadow: var(--glass-shadow);
+    /* Cabeçalho Flutuante */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 3rem 5%;
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
     }
 
-    .cabecalho {
-      text-align: center;
-      padding: 3rem 2rem;
-      margin-bottom: 3rem;
-      border-bottom-left-radius: 20px;
-      border-bottom-right-radius: 20px;
-      transition: var(--transition);
+    .header-text h1 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 0.2rem;
     }
 
-    .cabecalho h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
+    .header-text p {
+      font-size: 1rem;
+      color: var(--text-muted);
+      font-weight: 400;
     }
 
-    .cabecalho p {
-      font-weight: 600;
-      margin-bottom: 1.5rem;
-      opacity: 0.8;
-    }
-
+    /* Botão de Modo Escuro no estilo Pílula */
     #theme-toggle {
-      background-color: var(--glass-bg);
-      backdrop-filter: blur(4px);
-      border: 1px solid var(--primary-color);
-      color: var(--primary-color);
+      background: var(--glass-bg);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid var(--glass-border);
+      color: var(--text-main);
       padding: 0.6rem 1.2rem;
-      border-radius: 30px;
+      border-radius: 50px;
       cursor: pointer;
-      font-weight: 600;
-      transition: var(--transition);
+      font-weight: 500;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: var(--glass-shadow);
+      transition: all 0.3s ease;
     }
 
     #theme-toggle:hover {
-      background-color: var(--primary-color);
-      color: var(--btn-text);
+      background: var(--btn-hover);
+    }
+
+    /* Área Principal e Grid dos Cartões */
+    main {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0 5%;
     }
 
     .catalogo {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
       gap: 2rem;
       max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 2rem;
+      width: 100%;
     }
 
+    /* Estilo do Cartão de Vidro */
     .projeto {
-      border-radius: 16px;
-      overflow: hidden;
-      transition: var(--transition);
+      background: var(--glass-bg);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--glass-border);
+      box-shadow: var(--glass-shadow);
+      border-radius: 20px;
+      padding: 1.2rem;
       display: flex;
       flex-direction: column;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .projeto:hover {
       transform: translateY(-5px);
-      box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.2);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.1);
     }
 
     .projeto img {
       width: 100%;
       height: 200px;
       object-fit: cover;
-      border-bottom: 1px solid var(--glass-border);
+      border-radius: 12px;
+      margin-bottom: 1.2rem;
     }
 
-    .projeto-content {
-      padding: 1.5rem;
-      display: flex;
-      flex-direction: column;
-      flex-grow: 1;
-    }
-
-    .projeto-content h3 {
-      font-size: 1.25rem;
+    .projeto h3 {
+      font-size: 1.3rem;
+      font-weight: 600;
       margin-bottom: 0.5rem;
     }
 
-    .projeto-content p {
+    .projeto p {
       font-size: 0.9rem;
+      color: var(--text-muted);
       margin-bottom: 1rem;
+      line-height: 1.5;
       flex-grow: 1;
-      opacity: 0.9;
     }
 
-    .techs {
+    .projeto .techs {
       font-size: 0.85rem;
-      font-weight: 600;
+      color: var(--text-main);
+      margin-bottom: 1.5rem;
     }
 
+    .projeto .techs strong {
+      font-weight: 700;
+    }
+
+    /* Botões dos Projetos no estilo Pílula */
     .links {
       display: flex;
-      gap: 1rem;
-      margin-top: 1rem;
+      gap: 0.8rem;
     }
 
     .btn {
       text-decoration: none;
-      background-color: var(--primary-color);
-      color: var(--btn-text);
+      background: var(--btn-bg);
+      border: 1px solid var(--glass-border);
+      color: var(--text-main);
       padding: 0.6rem 1rem;
-      border-radius: 8px;
+      border-radius: 50px;
       font-size: 0.9rem;
-      font-weight: 600;
-      transition: var(--transition);
+      font-weight: 500;
       text-align: center;
       flex: 1;
+      transition: all 0.3s ease;
     }
 
     .btn:hover {
-      opacity: 0.8;
+      background: var(--btn-hover);
       transform: scale(1.02);
     }
 
-    .btn-outline {
-      background-color: transparent;
-      border: 1px solid var(--primary-color);
-      color: var(--primary-color);
-    }
-
-    .btn-outline:hover {
-      background-color: var(--primary-color);
-      color: var(--btn-text);
-    }
-
+    /* Rodapé */
     footer {
       text-align: center;
-      padding: 1.5rem;
-      margin-top: 4rem;
-      border-top-left-radius: 20px;
-      border-top-right-radius: 20px;
-      transition: var(--transition);
+      padding: 2rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    /* Responsividade para Celulares */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 1.5rem;
+      }
     }
   </style>
 </head>
 <body>
-  <header class="cabecalho glass-effect">
-    <h1>Meu Portfólio Web</h1>
-    <p>Desenvolvedor | JavaScript, Python, HTML & CSS</p>
-    <button id="theme-toggle" onclick="toggleDarkMode()">🌙 Modo Escuro</button>
+
+  <header>
+    <div class="header-text">
+      <h1>Meu Portfólio Web</h1>
+      <p>Desenvolvedor | JavaScript, Python, HTML & CSS</p>
+    </div>
+    <button id="theme-toggle" onclick="toggleDarkMode()">
+      <span>🌙</span> <span id="theme-text">Modo Escuro</span>
+    </button>
   </header>
 
   <main>
     <section class="catalogo">
-      <article class="projeto glass-effect">
+      <article class="projeto">
         <img src="https://images.unsplash.com/photo-1516245834210-c4c142787335?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Galeria de Fotos">
-        <div class="projeto-content">
-          <h3>Galeria Fotográfica Realista</h3>
-          <p>Plataforma para exibição de imagens em alta resolução com filtros e grid responsivo.</p>
-          <p class="techs"><strong>Tecnologias:</strong> HTML, CSS, JavaScript</p>
-          <div class="links">
-            <a href="#" class="btn">Ver Online</a>
-            <a href="#" class="btn btn-outline">GitHub</a>
-          </div>
+        <h3>Galeria Fotográfica Realista</h3>
+        <p>Plataforma para exibição de imagens em resolução com filtros e grid responsivo.</p>
+        <p class="techs"><strong>Tecnologias:</strong> HTML, CSS, JavaScript</p>
+        <div class="links">
+          <a href="#" class="btn">Ver Online</a>
+          <a href="#" class="btn">GitHub</a>
         </div>
       </article>
 
-      <article class="projeto glass-effect">
-        <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Catálogo de Veículos">
-        <div class="projeto-content">
-          <h3>Catálogo Automotivo</h3>
-          <p>Aplicação web para busca e visualização de especificações de carros.</p>
-          <p class="techs"><strong>Tecnologias:</strong> JavaScript, Python, CSS</p>
-          <div class="links">
-            <a href="#" class="btn">Ver Online</a>
-            <a href="#" class="btn btn-outline">GitHub</a>
-          </div>
+      <article class="projeto">
+        <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Catálogo Automotivo">
+        <h3>Catálogo Automotivo</h3>
+        <p>Aplicação web para busca e visualização de especificações de carros.</p>
+        <p class="techs"><strong>Tecnologias:</strong> JavaScript, Python, HTML & CSS</p>
+        <div class="links">
+          <a href="#" class="btn">Ver Online</a>
+          <a href="#" class="btn">GitHub</a>
         </div>
       </article>
 
-      <article class="projeto glass-effect">
-        <img src="https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Rede Social de Vídeos">
-        <div class="projeto-content">
-          <h3>Clone de Rede Social</h3>
-          <p>Plataforma de compartilhamento de vídeos curtos com feed dinâmico.</p>
-          <p class="techs"><strong>Tecnologias:</strong> Node.js, JavaScript, React</p>
-          <div class="links">
-            <a href="#" class="btn">Ver Online</a>
-            <a href="#" class="btn btn-outline">GitHub</a>
-          </div>
+      <article class="projeto">
+        <img src="https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Clone de Rede Social">
+        <h3>Clone de Rede Social</h3>
+        <p>Plataforma de compartilhamento de vídeos curtos com feed dinâmico.</p>
+        <p class="techs"><strong>Tecnologias:</strong> Node.js, JavaScript, React</p>
+        <div class="links">
+          <a href="#" class="btn">Ver Online</a>
+          <a href="#" class="btn">GitHub</a>
         </div>
       </article>
     </section>
   </main>
 
-  <footer class="glass-effect">
+  <footer>
     <p>© 2026 - Seu Nome. Todos os direitos reservados.</p>
   </footer>
 
   <script>
+    // Lógica para alternar o botão e as classes do Modo Escuro
     function toggleDarkMode() {
       document.body.classList.toggle('dark-mode');
-      const button = document.getElementById('theme-toggle');
+      const themeText = document.getElementById('theme-text');
+      const icon = document.querySelector('#theme-toggle span:first-child');
+      
       if (document.body.classList.contains('dark-mode')) {
-        button.textContent = '☀️ Modo Claro';
+        themeText.textContent = 'Modo Claro';
+        icon.textContent = '☀️';
       } else {
-        button.textContent = '🌙 Modo Escuro';
+        themeText.textContent = 'Modo Escuro';
+        icon.textContent = '🌙';
       }
     }
   </script>
+
 </body>
 </html>
