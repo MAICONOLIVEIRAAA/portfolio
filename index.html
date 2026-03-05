@@ -5,57 +5,60 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfólio Web - Desenvolvedor</title>
   <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header>
+  <header class="cabecalho">
     <h1>Meu Portfólio Web</h1>
-    <p>Desenvolvedor Front-End | HTML, CSS, JavaScript</p>
-    <button onclick="toggleDarkMode()">🌙 Modo Escuro</button>
+    <p>Desenvolvedor | JavaScript, Python, HTML & CSS</p>
+    <button id="theme-toggle" onclick="toggleDarkMode()">🌙 Modo Escuro</button>
   </header>
 
-  <section class="catalogo">
-    <div class="projeto">
-      <img src="https://via.placeholder.com/600x400?text=Projeto+1" alt="Projeto 1">
-      <div class="projeto-content">
-        <h3>Landing Page de Agência</h3>
-        <p>Uma página moderna e responsiva para uma agência de marketing.</p>
-        <p><strong>Tecnologias:</strong> HTML, CSS, JavaScript</p>
-        <div class="links">
-          <a href="#">Ver Online</a>
-          <a href="#">GitHub</a>
+  <main>
+    <section class="catalogo">
+      <article class="projeto">
+        <img src="https://images.unsplash.com/photo-1516245834210-c4c142787335?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="App de Galeria de Fotos">
+        <div class="projeto-content">
+          <h3>Galeria Fotográfica Hyper-Realista</h3>
+          <p>Plataforma para exibição de imagens em alta resolução com filtros de câmera e grid responsivo.</p>
+          <p class="techs"><strong>Tecnologias:</strong> HTML, CSS, JavaScript</p>
+          <div class="links">
+            <a href="#" class="btn">Ver Online</a>
+            <a href="#" class="btn btn-outline">GitHub</a>
+          </div>
         </div>
-      </div>
-    </div>
+      </article>
 
-    <div class="projeto">
-      <img src="https://via.placeholder.com/600x400?text=Projeto+2" alt="Projeto 2">
-      <div class="projeto-content">
-        <h3>Portfólio Pessoal</h3>
-        <p>Um modelo de portfólio simples para desenvolvedores iniciantes.</p>
-        <p><strong>Tecnologias:</strong> HTML, CSS</p>
-        <div class="links">
-          <a href="#">Ver Online</a>
-          <a href="#">GitHub</a>
+      <article class="projeto">
+        <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Sistema de Catálogo de Veículos">
+        <div class="projeto-content">
+          <h3>Catálogo Automotivo</h3>
+          <p>Aplicação web para busca e visualização de especificações de carros de luxo.</p>
+          <p class="techs"><strong>Tecnologias:</strong> JavaScript, Python, CSS</p>
+          <div class="links">
+            <a href="#" class="btn">Ver Online</a>
+            <a href="#" class="btn btn-outline">GitHub</a>
+          </div>
         </div>
-      </div>
-    </div>
+      </article>
 
-    <div class="projeto">
-      <img src="https://via.placeholder.com/600x400?text=Projeto+3" alt="Projeto 3">
-      <div class="projeto-content">
-        <h3>Dashboard Interativa</h3>
-        <p>Painel de controle com gráficos e dados simulados.</p>
-        <p><strong>Tecnologias:</strong> HTML, CSS, JS (Chart.js)</p>
-        <div class="links">
-          <a href="#">Ver Online</a>
-          <a href="#">GitHub</a>
+      <article class="projeto">
+        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Dashboard Interativa">
+        <div class="projeto-content">
+          <h3>Dashboard Interativa</h3>
+          <p>Painel de controle com gráficos e análise de dados em tempo real.</p>
+          <p class="techs"><strong>Tecnologias:</strong> JS (Chart.js), Python (API)</p>
+          <div class="links">
+            <a href="#" class="btn">Ver Online</a>
+            <a href="#" class="btn btn-outline">GitHub</a>
+          </div>
         </div>
-      </div>
-    </div>
-  </section>
+      </article>
+    </section>
+  </main>
 
   <footer>
-    <p>© 2025 - Seu Nome. Todos os direitos reservados.</p>
+    <p>© 2026 - Seu Nome. Todos os direitos reservados.</p>
   </footer>
 
   <script src="js/script.js"></script>
