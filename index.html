@@ -36,12 +36,12 @@
     }
 
     html {
-      /* Adiciona rolagem suave ao clicar nos links do menu */
       scroll-behavior: smooth; 
     }
 
     body {
-      background-image: url('fundo.jpg');
+      /* ATENÇÃO: O nome da imagem no seu repositório precisa ser exatamente esse! */
+      background-image: url('istockphoto-1502033887-612x612.jpg');
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
@@ -52,7 +52,6 @@
       transition: color 0.3s ease;
     }
 
-    /* Efeito Global de Vidro */
     .glass-effect {
       background: var(--glass-bg);
       backdrop-filter: blur(16px);
@@ -61,7 +60,6 @@
       box-shadow: var(--glass-shadow);
     }
 
-    /* --- CABEÇALHO E MENU --- */
     header {
       display: flex;
       justify-content: space-between;
@@ -143,7 +141,6 @@
       background: var(--btn-hover);
     }
 
-    /* --- ÁREA PRINCIPAL --- */
     main {
       flex: 1;
       width: 100%;
@@ -152,7 +149,6 @@
       padding: 0 5%;
     }
 
-    /* --- SEÇÃO: SOBRE MIM --- */
     .sobre-container {
       border-radius: 20px;
       padding: 2.5rem;
@@ -190,7 +186,6 @@
       color: var(--text-main);
     }
 
-    /* --- SEÇÃO: PROJETOS --- */
     .titulo-sessao {
       font-size: 1.8rem;
       margin-bottom: 2rem;
@@ -244,7 +239,6 @@
       margin-bottom: 1.5rem;
     }
 
-    /* --- BOTÕES --- */
     .links { display: flex; gap: 0.8rem; }
 
     .btn {
@@ -268,7 +262,6 @@
       transform: scale(1.02);
     }
 
-    /* --- RODAPÉ --- */
     footer {
       text-align: center;
       padding: 3rem 2rem;
@@ -276,7 +269,6 @@
       color: var(--text-muted);
     }
 
-    /* Responsividade */
     @media (max-width: 768px) {
       header {
         flex-direction: column;
@@ -298,8 +290,8 @@
       <nav class="menu">
         <a href="#sobre" class="menu-link">Sobre Mim</a>
         <a href="#projetos" class="menu-link">Projetos</a>
-        <a href="COLOQUE_SEU_LINK_DO_LINKEDIN_AQUI" target="_blank" class="social-link">💼 LinkedIn</a>
-        <a href="COLOQUE_SEU_LINK_DO_INSTA_AQUI" target="_blank" class="social-link">📸 Instagram</a>
+        <a href="#" target="_blank" class="social-link">💼 LinkedIn</a>
+        <a href="#" target="_blank" class="social-link">📸 Instagram</a>
       </nav>
 
     </div>
@@ -311,7 +303,7 @@
   <main>
     <section id="sobre" class="sobre-container glass-effect">
       <h2>Sobre Mim</h2>
-      <p>Olá! Sou um desenvolvedor focado em criar aplicações web eficientes e responsivas. Escreva aqui um pequeno resumo sobre você, seus objetivos de carreira e o que te motiva na tecnologia. Este é o espaço perfeito para mostrar um pouco da sua personalidade.</p>
+      <p>Olá! Sou um desenvolvedor focado em criar aplicações web eficientes e responsivas. Escreva aqui um pequeno resumo sobre você, seus objetivos de carreira e o que te motiva na tecnologia.</p>
       
       <h3 class="formacao-titulo">Formação e Certificações</h3>
       <ul class="lista-formacao">
@@ -320,7 +312,7 @@
         <li><strong>Desenvolvimento Front-End Avançado</strong> - Plataforma de Curso (2024)</li>
       </ul>
 
-      <a href="COLOQUE_O_NOME_DO_SEU_ARQUIVO_DE_CURRICULO.pdf" target="_blank" class="btn">📄 Baixar Currículo Completo (PDF)</a>
+      <a href="#" target="_blank" class="btn">📄 Baixar Currículo Completo (PDF)</a>
     </section>
 
     <h2 id="projetos" class="titulo-sessao">Meus Projetos</h2>
