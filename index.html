@@ -11,7 +11,6 @@
     :root {
       --text-main: #1a1a1a;
       --text-muted: #4a4a4a;
-      /* Cartões mais transparentes para mostrar bem o fundo */
       --glass-bg: rgba(255, 255, 255, 0.25); 
       --glass-border: rgba(255, 255, 255, 0.4);
       --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
@@ -41,9 +40,8 @@
     }
 
     body {
-      /* Fundo com as exatas cores desfocadas da sua imagem, feito em CSS */
       background: linear-gradient(135deg, #7baac9 0%, #d8cfc5 50%, #fdf5e6 100%);
-      background-size: 200% 200%;
+      background-size: cover;
       background-attachment: fixed;
       min-height: 100vh;
       color: var(--text-main);
@@ -54,7 +52,6 @@
 
     .glass-effect {
       background: var(--glass-bg);
-      /* Aumentei o desfoque aqui para 20px */
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
       border: 1px solid var(--glass-border);
@@ -304,7 +301,7 @@
   <main>
     <section id="sobre" class="sobre-container glass-effect">
       <h2>Sobre Mim</h2>
-      <p>Olá! Sou um desenvolvedor focado em criar aplicações web eficientes e responsivas. Escreva aqui um pequeno resumo sobre você, seus objetivos de carreira e o que te motiva na tecnologia.</p>
+      <p>Olá! Sou um desenvolvedor focado em criar aplicações web eficientes e responsivas. Busco sempre aplicar as melhores práticas de programação para entregar interfaces limpas e sistemas funcionais.</p>
       
       <h3 class="formacao-titulo">Formação e Certificações</h3>
       <ul class="lista-formacao">
@@ -318,10 +315,11 @@
 
     <h2 id="projetos" class="titulo-sessao">Meus Projetos</h2>
     <section class="catalogo">
+      
       <article class="projeto glass-effect">
-        <img src="https://images.unsplash.com/photo-1516245834210-c4c142787335?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Galeria de Fotos">
-        <h3>Galeria Fotográfica Realista</h3>
-        <p>Plataforma para exibição de imagens em resolução com filtros e grid responsivo.</p>
+        <img src="https://images.unsplash.com/photo-1516245834210-c4c142787335?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Site de Fotografia">
+        <h3>Galeria de Fotografia Hyper-Realista</h3>
+        <p>Plataforma para exibição de fotografias em altíssima resolução com configurações detalhadas de lente, iluminação e grid dinâmico.</p>
         <p class="techs"><strong>Tecnologias:</strong> HTML, CSS, JavaScript</p>
         <div class="links">
           <a href="#" class="btn flex-1">Ver Online</a>
@@ -330,9 +328,9 @@
       </article>
 
       <article class="projeto glass-effect">
-        <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Catálogo Automotivo">
-        <h3>Catálogo Automotivo</h3>
-        <p>Aplicação web para busca e visualização de especificações de carros.</p>
+        <img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="E-commerce de Veículos">
+        <h3>E-commerce de Veículos Premium</h3>
+        <p>Plataforma de vendas online focada em modelos exclusivos e esportivos da Mercedes-Benz e Volkswagen, com filtros avançados de busca.</p>
         <p class="techs"><strong>Tecnologias:</strong> JavaScript, Python, HTML & CSS</p>
         <div class="links">
           <a href="#" class="btn flex-1">Ver Online</a>
@@ -341,15 +339,16 @@
       </article>
 
       <article class="projeto glass-effect">
-        <img src="https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Clone de Rede Social">
-        <h3>Clone de Rede Social</h3>
-        <p>Plataforma de compartilhamento de vídeos curtos com feed dinâmico.</p>
-        <p class="techs"><strong>Tecnologias:</strong> Node.js, JavaScript, React</p>
+        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Fórum de Desenvolvedores">
+        <h3>Fórum para Desenvolvedores</h3>
+        <p>Comunidade interativa para programadores debaterem arquitetura de software, frameworks e resolução de problemas usando Python e JavaScript.</p>
+        <p class="techs"><strong>Tecnologias:</strong> Node.js, JavaScript, MongoDB</p>
         <div class="links">
           <a href="#" class="btn flex-1">Ver Online</a>
           <a href="#" class="btn flex-1">GitHub</a>
         </div>
       </article>
+
     </section>
   </main>
 
