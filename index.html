@@ -8,7 +8,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   
   <style>
-    /* Variáveis de cores para facilitar o Modo Claro/Escuro */
     :root {
       --text-main: #1a1a1a;
       --text-muted: #4a4a4a;
@@ -19,7 +18,6 @@
       --btn-hover: rgba(255, 255, 255, 0.9);
     }
 
-    /* Cores do Modo Escuro */
     body.dark-mode {
       --text-main: #ffffff;
       --text-muted: #e0e0e0;
@@ -37,8 +35,12 @@
       font-family: 'Poppins', sans-serif;
     }
 
+    html {
+      /* Adiciona rolagem suave ao clicar nos links do menu */
+      scroll-behavior: smooth; 
+    }
+
     body {
-      /* Imagem de Fundo - Precisa estar na mesma pasta! */
       background-image: url('fundo.jpg');
       background-size: cover;
       background-position: center;
@@ -50,7 +52,16 @@
       transition: color 0.3s ease;
     }
 
-    /* Cabeçalho Flutuante */
+    /* Efeito Global de Vidro */
+    .glass-effect {
+      background: var(--glass-bg);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--glass-border);
+      box-shadow: var(--glass-shadow);
+    }
+
+    /* --- CABEÇALHO E MENU --- */
     header {
       display: flex;
       justify-content: space-between;
@@ -71,13 +82,50 @@
       font-size: 1rem;
       color: var(--text-muted);
       font-weight: 400;
+      margin-bottom: 1.5rem;
     }
 
-    /* Botão de Modo Escuro no estilo Pílula */
+    .menu {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .menu-link {
+      text-decoration: none;
+      color: var(--text-main);
+      font-weight: 500;
+      padding: 0.4rem 1rem;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+    }
+
+    .menu-link:hover {
+      background: var(--glass-border);
+    }
+
+    .social-link {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      color: var(--text-main);
+      text-decoration: none;
+      padding: 0.4rem 1rem;
+      border-radius: 50px;
+      font-weight: 500;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+    }
+
+    .social-link:hover {
+      background: var(--btn-hover);
+      transform: translateY(-2px);
+    }
+
     #theme-toggle {
       background: var(--glass-bg);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
       border: 1px solid var(--glass-border);
       color: var(--text-main);
       padding: 0.6rem 1.2rem;
@@ -88,7 +136,6 @@
       display: flex;
       align-items: center;
       gap: 8px;
-      box-shadow: var(--glass-shadow);
       transition: all 0.3s ease;
     }
 
@@ -96,30 +143,67 @@
       background: var(--btn-hover);
     }
 
-    /* Área Principal e Grid dos Cartões */
+    /* --- ÁREA PRINCIPAL --- */
     main {
       flex: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
       padding: 0 5%;
+    }
+
+    /* --- SEÇÃO: SOBRE MIM --- */
+    .sobre-container {
+      border-radius: 20px;
+      padding: 2.5rem;
+      margin-bottom: 4rem;
+      line-height: 1.7;
+    }
+
+    .sobre-container h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .sobre-container p {
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+    }
+
+    .formacao-titulo {
+      font-size: 1.3rem;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .lista-formacao {
+      list-style-position: inside;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+    }
+
+    .lista-formacao li {
+      margin-bottom: 0.5rem;
+    }
+
+    .lista-formacao strong {
+      color: var(--text-main);
+    }
+
+    /* --- SEÇÃO: PROJETOS --- */
+    .titulo-sessao {
+      font-size: 1.8rem;
+      margin-bottom: 2rem;
+      text-align: center;
     }
 
     .catalogo {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
       gap: 2rem;
-      max-width: 1200px;
-      width: 100%;
     }
 
-    /* Estilo do Cartão de Vidro */
     .projeto {
-      background: var(--glass-bg);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid var(--glass-border);
-      box-shadow: var(--glass-shadow);
       border-radius: 20px;
       padding: 1.2rem;
       display: flex;
@@ -160,15 +244,8 @@
       margin-bottom: 1.5rem;
     }
 
-    .projeto .techs strong {
-      font-weight: 700;
-    }
-
-    /* Botões dos Projetos no estilo Pílula */
-    .links {
-      display: flex;
-      gap: 0.8rem;
-    }
+    /* --- BOTÕES --- */
+    .links { display: flex; gap: 0.8rem; }
 
     .btn {
       text-decoration: none;
@@ -180,25 +257,26 @@
       font-size: 0.9rem;
       font-weight: 500;
       text-align: center;
-      flex: 1;
       transition: all 0.3s ease;
+      display: inline-block;
     }
+
+    .btn.flex-1 { flex: 1; }
 
     .btn:hover {
       background: var(--btn-hover);
       transform: scale(1.02);
     }
 
-    /* Rodapé */
+    /* --- RODAPÉ --- */
     footer {
       text-align: center;
-      padding: 2rem;
+      padding: 3rem 2rem;
       font-size: 0.9rem;
       color: var(--text-muted);
-      font-weight: 500;
     }
 
-    /* Responsividade para Celulares */
+    /* Responsividade */
     @media (max-width: 768px) {
       header {
         flex-direction: column;
@@ -206,6 +284,7 @@
         text-align: center;
         gap: 1.5rem;
       }
+      .menu { justify-content: center; }
     }
   </style>
 </head>
@@ -215,6 +294,14 @@
     <div class="header-text">
       <h1>Meu Portfólio Web</h1>
       <p>Desenvolvedor | JavaScript, Python, HTML & CSS</p>
+      
+      <nav class="menu">
+        <a href="#sobre" class="menu-link">Sobre Mim</a>
+        <a href="#projetos" class="menu-link">Projetos</a>
+        <a href="COLOQUE_SEU_LINK_DO_LINKEDIN_AQUI" target="_blank" class="social-link">💼 LinkedIn</a>
+        <a href="COLOQUE_SEU_LINK_DO_INSTA_AQUI" target="_blank" class="social-link">📸 Instagram</a>
+      </nav>
+
     </div>
     <button id="theme-toggle" onclick="toggleDarkMode()">
       <span>🌙</span> <span id="theme-text">Modo Escuro</span>
@@ -222,37 +309,52 @@
   </header>
 
   <main>
+    <section id="sobre" class="sobre-container glass-effect">
+      <h2>Sobre Mim</h2>
+      <p>Olá! Sou um desenvolvedor focado em criar aplicações web eficientes e responsivas. Escreva aqui um pequeno resumo sobre você, seus objetivos de carreira e o que te motiva na tecnologia. Este é o espaço perfeito para mostrar um pouco da sua personalidade.</p>
+      
+      <h3 class="formacao-titulo">Formação e Certificações</h3>
+      <ul class="lista-formacao">
+        <li><strong>Análise e Desenvolvimento de Sistemas</strong> - Nome da Instituição (2022 - 2024)</li>
+        <li><strong>Arquitetura de Servidores (Docker, Nginx)</strong> - Plataforma de Curso (2025)</li>
+        <li><strong>Desenvolvimento Front-End Avançado</strong> - Plataforma de Curso (2024)</li>
+      </ul>
+
+      <a href="COLOQUE_O_NOME_DO_SEU_ARQUIVO_DE_CURRICULO.pdf" target="_blank" class="btn">📄 Baixar Currículo Completo (PDF)</a>
+    </section>
+
+    <h2 id="projetos" class="titulo-sessao">Meus Projetos</h2>
     <section class="catalogo">
-      <article class="projeto">
+      <article class="projeto glass-effect">
         <img src="https://images.unsplash.com/photo-1516245834210-c4c142787335?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Galeria de Fotos">
         <h3>Galeria Fotográfica Realista</h3>
         <p>Plataforma para exibição de imagens em resolução com filtros e grid responsivo.</p>
         <p class="techs"><strong>Tecnologias:</strong> HTML, CSS, JavaScript</p>
         <div class="links">
-          <a href="#" class="btn">Ver Online</a>
-          <a href="#" class="btn">GitHub</a>
+          <a href="#" class="btn flex-1">Ver Online</a>
+          <a href="#" class="btn flex-1">GitHub</a>
         </div>
       </article>
 
-      <article class="projeto">
+      <article class="projeto glass-effect">
         <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Catálogo Automotivo">
         <h3>Catálogo Automotivo</h3>
         <p>Aplicação web para busca e visualização de especificações de carros.</p>
         <p class="techs"><strong>Tecnologias:</strong> JavaScript, Python, HTML & CSS</p>
         <div class="links">
-          <a href="#" class="btn">Ver Online</a>
-          <a href="#" class="btn">GitHub</a>
+          <a href="#" class="btn flex-1">Ver Online</a>
+          <a href="#" class="btn flex-1">GitHub</a>
         </div>
       </article>
 
-      <article class="projeto">
+      <article class="projeto glass-effect">
         <img src="https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Clone de Rede Social">
         <h3>Clone de Rede Social</h3>
         <p>Plataforma de compartilhamento de vídeos curtos com feed dinâmico.</p>
         <p class="techs"><strong>Tecnologias:</strong> Node.js, JavaScript, React</p>
         <div class="links">
-          <a href="#" class="btn">Ver Online</a>
-          <a href="#" class="btn">GitHub</a>
+          <a href="#" class="btn flex-1">Ver Online</a>
+          <a href="#" class="btn flex-1">GitHub</a>
         </div>
       </article>
     </section>
@@ -263,7 +365,6 @@
   </footer>
 
   <script>
-    // Lógica para alternar o botão e as classes do Modo Escuro
     function toggleDarkMode() {
       document.body.classList.toggle('dark-mode');
       const themeText = document.getElementById('theme-text');
